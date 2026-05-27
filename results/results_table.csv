@@ -1,0 +1,7 @@
+Experiment,Modification,Train Loss,Val Loss,Val Accuracy,Best Val Accuracy
+"Baseline (hidden=128, 1 layer, dropout=0.3)","Baseline (hidden=128, 1 layer, dropout=0.3)",0.7484,1.8638,0.3536,0.3536
+Exp 1 – Larger Hidden (256),hidden_dim: 128 → 256,0.8042,1.7846,0.3578,0.3586
+Exp 2 – Higher Dropout (0.5),dropout: 0.3 → 0.5,1.0382,1.5158,0.3319,0.3461
+Exp 3 – No Dropout (0.0),dropout: 0.3 → 0.0 (removed),0.5567,2.0723,0.3420,0.3470
+Exp 4 – Two LSTM Layers,num_layers: 1 → 2 (stacked LSTM),1.14,1.5483,0.3486,0.3486
+Exp 5 – Bidirectional LSTM,bidirectional: False → True,0.457,2.0714,0.3937,0.4420
