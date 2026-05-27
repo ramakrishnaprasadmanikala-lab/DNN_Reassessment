@@ -1,0 +1,29 @@
+# ============================================================
+#  DNNLS Reassessment — Text-Only Sequence Position Classifier
+#  Task: Predict position (1–5) of a story sentence (5-class)
+#  Modality: TEXT ONLY (no images used)
+#  Loss: CrossEntropyLoss
+# ============================================================
+
+model:
+  text_classifier:
+    vocab_size: 5000
+    embed_dim: 128
+    hidden_dim: 128        # Baseline hidden size  (Exp 1 changes to 256)
+    num_layers: 1          # Baseline: single LSTM layer  (Exp 4 changes to 2)
+    dropout: 0.3           # Baseline dropout  (Exp 2→0.5, Exp 3→0.0)
+    num_classes: 5         # Positions 1-5
+    bidirectional: false   # Baseline: unidirectional  (Exp 5 changes to true)
+
+training:
+  batch_size: 64
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  num_epochs: 10
+  max_text_len: 60         # Max tokens per sentence
+  train_subset: 1200       # Number of stories to use (increase for better accuracy)
+  seed: 42
+
+paths:
+  checkpoint_dir: results/checkpoints
+  log_dir: results/logs
